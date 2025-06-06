@@ -7,17 +7,19 @@ import { TaskProvider } from './context/TaskContext';
 import { MascotProvider } from './context/MascotContext';
 import { SprintProvider } from './context/SprintContext';
 import { MilestoneProvider } from './context/MilestoneContext';
-
+import { AuthProvider } from './context/AuthContext';  // Import AuthProvider
 
 ReactDOM.render(
-  <TaskProvider>
-      <SprintProvider>
-          <MascotProvider>
-              <MilestoneProvider>
-                  <App />
-              </MilestoneProvider>
-          </MascotProvider>
-      </SprintProvider>
-  </TaskProvider>,
+  <AuthProvider> {/* Wrap the entire app in AuthProvider */}
+      <TaskProvider>
+          <SprintProvider>
+              <MascotProvider>
+                  <MilestoneProvider>
+                      <App />
+                  </MilestoneProvider>
+              </MascotProvider>
+          </SprintProvider>
+      </TaskProvider>
+  </AuthProvider>,
   document.getElementById('root')
 );
